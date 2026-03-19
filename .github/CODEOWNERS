@@ -1,0 +1,21 @@
+# Team ownership map
+# Format: <path> <owner>
+
+# Backend API and security
+/routes/api.php @Rehabwaleedahmeed
+/models/users.php @Rehabwaleedahmeed
+
+# Routing and public/admin page wiring
+/routes/public.php @nashat012
+/index.php @nashat012
+/views/orders.php @nashat012
+
+# Orders domain
+/models/order.php @DevAbdulrahmanAttia
+/controllers/orderController.php @DevAbdulrahmanAttia
+/routes/user.php @DevAbdulrahmanAttia
+
+# Frontend pages and JS
+/js/app.js @keroraed
+/views/admin/ @keroraed
+/css/ @keroraed
