@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*.log
+
+# Runtime / local env
+*.log
+.env
+
+# Uploaded assets (keep folders, ignore file contents)
+uploads/products/*
+uploads/users/*
+!uploads/products/.gitkeep
+!uploads/users/.gitkeep
+
+# Optional local cache
+.cache/
