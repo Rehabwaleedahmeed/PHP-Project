@@ -1,345 +1,444 @@
 <?php
-$pageTitle = 'Your Perfect Coffee Moment';
+$pageTitle = 'POS Panel';
 include __DIR__ . '/../layouts/head.php';
 ?>
     <?php include __DIR__ . '/../components/navbar.php'; ?>
 
-    <!-- Hero Section -->
-    <section class="hero-section hero-enhanced">
-        <div class="hero-background">
-            <div class="hero-bg-animated"></div>
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title fade-in-up">Your Perfect Coffee Moment</h1>
-                <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s;">Discover premium beverages and freshly prepared snacks</p>
-                <div class="hero-cta-buttons fade-in-up" style="animation-delay: 0.4s;">
-                    <a href="/products" class="btn btn-primary-modern btn-lg">
-                        <i class="fas fa-coffee me-2"></i>Browse Products
+    <?php if (!isset($_SESSION['user_id'])): ?>
+        <div class="container py-5">
+            <div class="card-modern mx-auto" style="max-width: 560px;">
+                <div class="card-body-modern text-center py-5">
+                    <h2 class="mb-3"><i class="fas fa-cash-register me-2"></i>POS Panel</h2>
+                    <p class="text-muted mb-4">Please sign in to open the cashier workspace.</p>
+                    <a href="/login" class="btn btn-primary-modern">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
                     </a>
-                    <?php if (!isset($_SESSION['user_id'])): ?>
-                    <a href="/register" class="btn btn-light-accent btn-lg">
-                        <i class="fas fa-user-plus me-2"></i>Create Account
-                    </a>
-                    <?php else: ?>
-                    <a href="/orders" class="btn btn-light-accent btn-lg">
-                        <i class="fas fa-receipt me-2"></i>My Orders
-                    </a>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="container py-5 stats-section">
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <div class="stat-item stat-item-animated">
-                    <div class="stat-icon-circle">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <span class="stat-number counter" data-target="500">0</span>
-                    <span class="stat-label">Happy Customers</span>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="stat-item stat-item-animated">
-                    <div class="stat-icon-circle">
-                        <i class="fas fa-box"></i>
-                    </div>
-                    <span class="stat-number counter" data-target="50">0</span>
-                    <span class="stat-label">Premium Products</span>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="stat-item stat-item-animated">
-                    <div class="stat-icon-circle">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Available Service</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section class="featured-section featured-enhanced">
-        <div class="featured-bg"></div>
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Products</h2>
-            <p class="text-center text-muted mb-5 fade-in" style="animation-delay: 0.2s;">Hand-picked selection of our finest items</p>
-            
-            <div id="featuredProductsContainer" class="row">
-                <!-- Products will be loaded here via JavaScript -->
-                <div class="col-md-4 mb-4">
-                    <div class="skeleton skeleton-product"></div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skeleton skeleton-product"></div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skeleton skeleton-product"></div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skeleton skeleton-product"></div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skeleton skeleton-product"></div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="skeleton skeleton-product"></div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <a href="/products" class="btn btn-primary-modern btn-lg">
-                    <i class="fas fa-arrow-right me-2"></i>View All Products
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section features-enhanced py-5">
-        <div class="features-bg"></div>
-        <div class="container">
-            <div class="row features-row">
-                <div class="col-md-4 mb-4">
-                    <div class="card-modern hover-lift feature-card">
-                        <div class="feature-icon-bg"></div>
-                        <div class="card-body-modern text-center">
-                            <div class="feature-icon-wrapper">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                            <h5 class="fw-bold">Fast Delivery</h5>
-                            <p class="text-muted">Quick and reliable order fulfillment</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-modern hover-lift feature-card">
-                        <div class="feature-icon-bg"></div>
-                        <div class="card-body-modern text-center">
-                            <div class="feature-icon-wrapper">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <h5 class="fw-bold">Fresh Quality</h5>
-                            <p class="text-muted">Only the freshest ingredients used</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-modern hover-lift feature-card">
-                        <div class="feature-icon-bg"></div>
-                        <div class="card-body-modern text-center">
-                            <div class="feature-icon-wrapper">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <h5 class="fw-bold">24/7 Support</h5>
-                            <p class="text-muted">Always here to help you out</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search & Browse Section -->
-    <section class="py-5 category-section">
-        <div class="container">
-            <h2 class="mb-4 section-title fade-in">Or Explore by Category</h2>
-            <div id="categorySection" class="row category-row">
-                <!-- Categories will be loaded via JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <?php include __DIR__ . '/../components/footer.php'; ?>
-
-    <!-- Scripts -->
-    <?php include __DIR__ . '/../layouts/scripts.php'; ?>
-    
-    <script>
-        // Counter animation for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                let current = 0;
-                const increment = target / 40;
-                
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current);
-                        setTimeout(updateCounter, 50);
-                    } else {
-                        counter.textContent = target + '+';
-                    }
-                };
-                
-                // Start animation when element is in view
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting && !counter.dataset.animated) {
-                        counter.dataset.animated = 'true';
-                        updateCounter();
-                    }
-                });
-                observer.observe(counter);
-            });
-        }
-
-        // Parallax effect on hero
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.hero-enhanced');
-            if (hero) {
-                const scrolled = window.pageYOffset;
-                const bg = hero.querySelector('.hero-bg-animated');
-                if (bg) bg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Initialize animations on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            animateCounters();
-            
-            // Add fade-in animation to category items when they load
-            setTimeout(() => {
-                const categoryItems = document.querySelectorAll('.category-row > div, .category-item-animated');
-                categoryItems.forEach((item, index) => {
-                    if (item.style.animation === '') {
-                        item.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
-                    }
-                });
-            }, 500);
-        });
-
-        const isAdmin = <?php echo (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') ? 'true' : 'false'; ?>;
-
-        // Load featured products on page load
-        document.addEventListener('DOMContentLoaded', async function() {
-            await loadFeaturedProducts();
-            await loadCategories();
-        });
-
-        async function loadFeaturedProducts() {
-            const container = document.getElementById('featuredProductsContainer');
-            
-            try {
-                const response = await Utils.apiRequest('/api/products');
-                
-                if (response.success) {
-                    const products = response.data.data.slice(0, 6);
-                    
-                    if (products.length === 0) {
-                        container.innerHTML = '<div class="col-12"><p class="text-center text-muted py-5">No products available yet.</p></div>';
-                        return;
-                    }
-
-                    let html = '';
-                    products.forEach(product => {
-                        const imageUrl = Utils.getProductImageUrl(product.image || product.image_path);
-                        const actionBtn = isAdmin
-                            ? `<a href="/admin/products" class="btn btn-primary-modern btn-sm"><i class="fas fa-pen"></i></a>`
-                            : `<button class="btn btn-primary-modern btn-sm" onclick="addToCart(${product.id})"><i class="fas fa-plus"></i></button>`;
-                        const categoryBadge = product.category_id ? `<span class="badge badge-info me-2">Category ${product.category_id}</span>` : '';
-                        
-                        html += `
-                            <div class="col-md-4 col-sm-6 mb-4">
-                                <div class="card-modern product-card-featured hover-lift">
-                                    <div class="card-body-modern">
-                                        <div class="text-center mb-3 product-img-container">
-                                            ${imageUrl
-                                                ? `<img src="${imageUrl}" alt="${product.name}" class="product-img-thumb">`
-                                                : `<i class="fas fa-coffee product-img-placeholder-icon"></i>`}
-                                        </div>
-                                        <h5 class="product-card-title">${product.name}</h5>
-                                        <p class="text-muted text-truncate-2 product-card-desc">
-                                            ${product.description || 'Premium product from our collection'}
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <span class="product-card-price">EGP ${parseFloat(product.price).toFixed(2)}</span>
-                                            ${actionBtn}
-                                        </div>
-                                        <div class="mt-3">
-                                            <a href="/product/${product.id}" class="btn btn-secondary-modern btn-sm w-100">
-                                                View Details
-                                            </a>
-                                        </div>
-                                    </div>
+    <?php else: ?>
+        <div class="container-fluid py-4">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card-modern mb-4">
+                        <div class="card-body-modern">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-5">
+                                    <label class="form-label-modern">Search</label>
+                                    <input id="posSearch" type="text" class="form-control-modern" placeholder="Type item name...">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label-modern">Category</label>
+                                    <select id="posCategory" class="form-select-modern">
+                                        <option value="">All Categories</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <button id="clearFiltersBtn" class="btn btn-secondary-modern w-100" type="button">
+                                        <i class="fas fa-rotate-left me-2"></i>Reset
+                                    </button>
                                 </div>
                             </div>
-                        `;
-                    });
+                        </div>
+                    </div>
 
-                    container.innerHTML = html;
-                } else {
-                    container.innerHTML = '<div class="col-12"><p class="text-center text-danger py-5">Failed to load products.</p></div>';
-                }
-            } catch (error) {
-                console.error('Error loading products:', error);
-                container.innerHTML = '<div class="col-12"><p class="text-center text-danger py-5">Error loading products.</p></div>';
+                    <div id="posProducts" class="row g-3">
+                        <div class="col-12">
+                            <div class="empty-state">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading products...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-modern" style="position: sticky; top: 95px;">
+                        <div class="card-header-modern d-flex justify-content-between align-items-center">
+                            <h5><i class="fas fa-shopping-cart me-2"></i>Current Order</h5>
+                            <span id="posItemsCount" class="badge-modern">0 items</span>
+                        </div>
+                        <div class="card-body-modern">
+                            <div id="posCartItems" class="mb-3">
+                                <div class="empty-state py-4">
+                                    <i class="fas fa-basket-shopping"></i>
+                                    <p>No items selected</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label-modern">Order Notes</label>
+                                <textarea id="posNotes" class="form-control-modern" rows="2" placeholder="Optional notes for kitchen..." style="resize: none;"></textarea>
+                            </div>
+
+                            <div class="cart-totals-summary">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Subtotal</span>
+                                    <strong id="posSubtotal">EGP 0.00</strong>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Tax (14%)</span>
+                                    <strong id="posTax">EGP 0.00</strong>
+                                </div>
+                                <hr class="my-2 border-0" style="height:1px;background:#e8e0d5;">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-bold">Total</span>
+                                    <strong id="posTotal" style="color: var(--primary-accent);">EGP 0.00</strong>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-3">
+                                <button id="placeOrderBtn" class="btn btn-primary-modern" type="button">
+                                    <i class="fas fa-check me-2"></i>Place Order
+                                </button>
+                                <button id="clearCartBtn" class="btn btn-secondary-modern" type="button">
+                                    <i class="fas fa-trash me-2"></i>Clear Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .pos-card {
+                height: 100%;
+            }
+
+            .pos-product-image {
+                height: 96px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #f8f4ee;
+                margin-bottom: 12px;
+            }
+
+            .pos-product-image img {
+                max-height: 88px;
+                max-width: 100%;
+                object-fit: contain;
+            }
+
+            .pos-name {
+                color: var(--text-dark);
+                font-weight: 700;
+                margin-bottom: 4px;
+            }
+
+            .pos-desc {
+                color: var(--text-muted);
+                font-size: 0.85rem;
+                min-height: 38px;
+                margin-bottom: 10px;
+            }
+
+            .pos-price {
+                color: var(--primary-dark);
+                font-weight: 700;
+                font-size: 1.15rem;
+            }
+
+            .pos-cart-item {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                border: 1px solid #e8e0d5;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                background: #fcfaf7;
+            }
+
+            .pos-qty {
+                display: inline-flex;
+                align-items: center;
+                border: 1px solid #d8cbb8;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .pos-qty button {
+                border: none;
+                background: #f3ece2;
+                width: 28px;
+                height: 28px;
+                color: var(--primary-dark);
+                font-weight: 700;
+            }
+
+            .pos-qty span {
+                width: 32px;
+                text-align: center;
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+        </style>
+    <?php endif; ?>
+
+    <?php include __DIR__ . '/../components/footer.php'; ?>
+    <?php include __DIR__ . '/../layouts/scripts.php'; ?>
+
+    <?php if (isset($_SESSION['user_id'])): ?>
+    <script>
+        const POS = {
+            products: [],
+            categories: [],
+            cart: {},
+            me: null,
+            taxRate: 0.14
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadCurrentUser();
+            await loadCategories();
+            await loadProducts();
+            bindPOSActions();
+            renderProducts();
+            renderCart();
+        });
+
+        async function loadCurrentUser() {
+            const res = await Utils.apiRequest('/api/me');
+            if (res.success && res.data && res.data.success) {
+                POS.me = res.data.data;
             }
         }
 
         async function loadCategories() {
-            const container = document.getElementById('categorySection');
-            
-            // Show loading state
-            container.innerHTML = '<div class="col-12 text-center py-4"><div class="spinner-border text-primary spinner-sm"></div></div>';
-            
-            try {
-                const response = await Utils.apiRequest('/api/categories');
-                
-                if (response.success && response.data && response.data.data) {
-                    const categories = response.data.data;
-                    
-                    if (categories.length === 0) {
-                        container.innerHTML = '<div class="col-12"><p class="text-center text-muted py-5">No categories available. Check back soon!</p></div>';
-                        return;
-                    }
+            const response = await Utils.apiRequest('/api/categories');
+            if (response.success && response.data && response.data.data) {
+                POS.categories = response.data.data;
+            }
 
-                    let html = '';
-                    categories.forEach((category, index) => {
-                        const icons = ['fa-coffee', 'fa-leaf', 'fa-cookie', 'fa-cake-candles'];
-                        const icon = icons[index % icons.length];
-                        
-                        html += `
-                            <div class="col-md-3 col-sm-6 mb-4 category-item-animated">
-                                <a href="/products?category=${category.id}" class="text-decoration-none">
-                                    <div class="card-modern hover-lift category-card">
-                                        <div class="mb-3 category-card-icon">
-                                            <i class="fas ${icon} fa-3x"></i>
-                                        </div>
-                                        <h6>${category.name}</h6>
-                                        <p class="text-muted small mb-0">${category.description || 'Browse items'}</p>
-                                    </div>
-                                </a>
-                            </div>
-                        `;
-                    });
+            const select = document.getElementById('posCategory');
+            POS.categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = String(cat.id);
+                option.textContent = cat.name;
+                select.appendChild(option);
+            });
+        }
 
-                    container.innerHTML = html;
-                    
-                    // Add animations to newly loaded items
-                    const items = container.querySelectorAll('.category-item-animated');
-                    items.forEach((item, idx) => {
-                        item.style.opacity = '0';
-                        item.style.animation = `fadeInUp 0.6s ease-out ${idx * 0.1}s forwards`;
-                    });
-                } else {
-                    console.warn('Invalid response format:', response);
-                    container.innerHTML = '<div class="col-12"><p class="text-center text-muted py-5">Unable to load categories. Please try again later.</p></div>';
-                }
-            } catch (error) {
-                console.error('Error loading categories:', error);
-                container.innerHTML = '<div class="col-12"><p class="text-center text-danger py-5"><i class="fas fa-exclamation-circle me-2"></i>Unable to load categories. Please refresh the page.</p></div>';
+        async function loadProducts() {
+            const response = await Utils.apiRequest('/api/products');
+            if (response.success && response.data && response.data.data) {
+                POS.products = response.data.data;
+            } else {
+                POS.products = [];
             }
         }
+
+        function bindPOSActions() {
+            document.getElementById('posSearch').addEventListener('input', renderProducts);
+            document.getElementById('posCategory').addEventListener('change', renderProducts);
+
+            document.getElementById('clearFiltersBtn').addEventListener('click', () => {
+                document.getElementById('posSearch').value = '';
+                document.getElementById('posCategory').value = '';
+                renderProducts();
+            });
+
+            document.getElementById('clearCartBtn').addEventListener('click', () => {
+                POS.cart = {};
+                renderCart();
+            });
+
+            document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+        }
+
+        function getFilteredProducts() {
+            const query = document.getElementById('posSearch').value.trim().toLowerCase();
+            const category = document.getElementById('posCategory').value;
+
+            return POS.products.filter(product => {
+                const name = String(product.name || '').toLowerCase();
+                const desc = String(product.description || '').toLowerCase();
+                const matchesQuery = !query || name.includes(query) || desc.includes(query);
+                const matchesCategory = !category || String(product.category_id) === category;
+                return matchesQuery && matchesCategory;
+            });
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('posProducts');
+            const products = getFilteredProducts();
+
+            if (!products.length) {
+                container.innerHTML = `
+                    <div class="col-12">
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <p>No products match your filters</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = products.map(product => {
+                const imageUrl = Utils.getProductImageUrl(product.image || product.image_path);
+                return `
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="card-modern pos-card">
+                            <div class="card-body-modern">
+                                <div class="pos-product-image">
+                                    ${imageUrl
+                                        ? `<img src="${imageUrl}" alt="${escapeHtml(product.name)}">`
+                                        : `<i class="fas fa-mug-hot fa-2x" style="color: var(--primary-dark);"></i>`}
+                                </div>
+                                <div class="pos-name">${escapeHtml(product.name)}</div>
+                                <div class="pos-desc">${escapeHtml(product.description || 'Freshly prepared item')}</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="pos-price">EGP ${Number(product.price || 0).toFixed(2)}</span>
+                                    <button class="btn btn-primary-modern btn-sm" type="button" onclick="addToPOSCart(${Number(product.id)})">
+                                        <i class="fas fa-plus me-1"></i>Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function addToPOSCart(productId) {
+            const product = POS.products.find(p => Number(p.id) === Number(productId));
+            if (!product) return;
+
+            const key = String(product.id);
+            if (!POS.cart[key]) {
+                POS.cart[key] = {
+                    id: Number(product.id),
+                    name: product.name,
+                    price: Number(product.price || 0),
+                    quantity: 0
+                };
+            }
+            POS.cart[key].quantity += 1;
+            renderCart();
+        }
+
+        function updateItemQty(productId, delta) {
+            const key = String(productId);
+            if (!POS.cart[key]) return;
+
+            POS.cart[key].quantity += delta;
+            if (POS.cart[key].quantity <= 0) {
+                delete POS.cart[key];
+            }
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('posCartItems');
+            const items = Object.values(POS.cart);
+
+            if (!items.length) {
+                container.innerHTML = `
+                    <div class="empty-state py-4">
+                        <i class="fas fa-basket-shopping"></i>
+                        <p>No items selected</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = items.map(item => {
+                    const lineTotal = item.quantity * item.price;
+                    return `
+                        <div class="pos-cart-item">
+                            <div style="flex: 1;">
+                                <div class="fw-bold" style="color: var(--text-dark);">${escapeHtml(item.name)}</div>
+                                <small class="text-muted">EGP ${item.price.toFixed(2)} each</small>
+                            </div>
+                            <div class="pos-qty">
+                                <button type="button" onclick="updateItemQty(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button type="button" onclick="updateItemQty(${item.id}, 1)">+</button>
+                            </div>
+                            <div class="fw-bold" style="min-width: 82px; text-align: right;">EGP ${lineTotal.toFixed(2)}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            const totals = calculateTotals();
+            document.getElementById('posItemsCount').textContent = `${totals.items} items`;
+            document.getElementById('posSubtotal').textContent = `EGP ${totals.subtotal.toFixed(2)}`;
+            document.getElementById('posTax').textContent = `EGP ${totals.tax.toFixed(2)}`;
+            document.getElementById('posTotal').textContent = `EGP ${totals.total.toFixed(2)}`;
+        }
+
+        function calculateTotals() {
+            const items = Object.values(POS.cart);
+            const count = items.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = items.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+            const tax = subtotal * POS.taxRate;
+            return {
+                items: count,
+                subtotal: Number(subtotal.toFixed(2)),
+                tax: Number(tax.toFixed(2)),
+                total: Number((subtotal + tax).toFixed(2))
+            };
+        }
+
+        async function placeOrder() {
+            const items = Object.values(POS.cart);
+            if (!items.length) {
+                toast.warning('Add at least one item before checkout', 'Empty Order');
+                return;
+            }
+
+            const totals = calculateTotals();
+            const payload = {
+                userId: POS.me && POS.me.id ? Number(POS.me.id) : null,
+                notes: document.getElementById('posNotes').value || '',
+                subtotal: totals.subtotal,
+                tax: totals.tax,
+                total: totals.total,
+                items: items.map(item => ({
+                    id: item.id,
+                    quantity: item.quantity,
+                    price: item.price
+                }))
+            };
+
+            try {
+                LoadingSpinner.show('Placing order...');
+                const response = await fetch('/api/orders/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                LoadingSpinner.hide();
+
+                if (result.success) {
+                    toast.success('Order created successfully', 'POS Checkout');
+                    POS.cart = {};
+                    document.getElementById('posNotes').value = '';
+                    renderCart();
+                } else {
+                    toast.error(result.message || 'Failed to create order', 'Checkout Error');
+                }
+            } catch (error) {
+                LoadingSpinner.hide();
+                toast.error(error.message || 'Unexpected error', 'Checkout Error');
+            }
+        }
+
+        function escapeHtml(value) {
+            return String(value || '').replace(/[&<>"']/g, ch => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            }[ch]));
+        }
     </script>
+    <?php endif; ?>
 </body>
 </html>

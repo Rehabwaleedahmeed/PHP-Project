@@ -60,7 +60,7 @@ include __DIR__ . '/layouts/head.php';
                 </div>
 
                 <!-- Action Buttons -->
-                <div style="margin-bottom: 2rem;">
+                <div style="margin-bottom: 2rem; text-align: center;">
                     <a href="/products" class="btn btn-primary-modern">
                         <i class="fas fa-shopping-bag"></i> Continue Shopping
                     </a>

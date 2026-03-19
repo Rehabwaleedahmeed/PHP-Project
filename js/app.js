@@ -536,7 +536,7 @@ window.CartManager = {
         if (cartIcon) {
             if (count > 0) {
                 cartIcon.textContent = count;
-                cartIcon.style.display = 'inline';
+                cartIcon.style.display = 'inline-flex';
             } else {
                 cartIcon.style.display = 'none';
             }

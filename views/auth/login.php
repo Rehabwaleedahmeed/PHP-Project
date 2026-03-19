@@ -34,7 +34,7 @@ include __DIR__ . '/../layouts/head.php';
                            placeholder="your@email.com" required autocomplete="email">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label-modern">🔒 Password</label>
+                    <label for="password" class="form-label-modern d-block">🔒 Password</label>
                     <input type="password" id="password" name="password" class="form-control-modern"
                            placeholder="••••••••" required autocomplete="current-password">
                 </div>
@@ -44,9 +44,6 @@ include __DIR__ . '/../layouts/head.php';
                 </button>
             </form>
 
-            <div class="login-footer mt-3">
-                Don't have an account? <a href="/register">Create one</a>
-            </div>
         </div>
     </div>
 

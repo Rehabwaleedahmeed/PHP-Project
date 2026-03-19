@@ -36,13 +36,6 @@
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i><span class="d-lg-none ms-2">Home</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/orders"><i class="fas fa-receipt"></i><span class="d-lg-none ms-2">My Orders</span></a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/orders" style="position: relative;">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span id="cartCount" style="display: none; position: absolute; top: -8px; right: -8px; background: var(--primary-accent); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">0</span>
-                            <span class="d-lg-none ms-2">Cart</span>
-                        </a>
-                    </li>
                     <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i><span class="d-lg-none ms-2">Logout</span></a></li>
                 <?php endif; ?>
 
